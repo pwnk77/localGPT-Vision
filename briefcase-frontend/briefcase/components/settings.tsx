@@ -1,7 +1,8 @@
 'use client'
 
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { toast } from 'sonner'
 
 interface SettingsFormData {
   indexerModel: string
@@ -10,17 +11,71 @@ interface SettingsFormData {
   resizedWidth: number
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+
 export function Settings() {
   const [settings, setSettings] = useState<SettingsFormData>({
     indexerModel: 'vidore/colpali',
     generationModel: 'qwen',
-    resizedHeight: 224,
-    resizedWidth: 224,
+    resizedHeight: 280,
+    resizedWidth: 280,
   })
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const response = await fetch(`${API_URL}/api/settings`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        
+        if (!response.ok) throw new Error('Failed to fetch settings')
+        
+        const data = await response.json()
+        setSettings({
+          indexerModel: data.indexer_model,
+          generationModel: data.generation_model,
+          resizedHeight: data.resized_height,
+          resizedWidth: data.resized_width,
+        })
+      } catch (error) {
+        console.error('Error fetching settings:', error)
+        toast.error('Failed to load settings')
+      }
+    }
+
+    fetchSettings()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Settings saved:', settings)
+    setIsLoading(true)
+
+    try {
+      const response = await fetch(`${API_URL}/api/settings`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          indexer_model: settings.indexerModel,
+          generation_model: settings.generationModel,
+          resized_height: settings.resizedHeight,
+          resized_width: settings.resizedWidth,
+        }),
+      })
+
+      if (!response.ok) throw new Error('Failed to update settings')
+      
+      toast.success('Settings saved successfully')
+    } catch (error) {
+      console.error('Error saving settings:', error)
+      toast.error('Failed to save settings')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
@@ -129,9 +184,12 @@ export function Settings() {
 
         <button
           type="submit"
-          className="bg-blue-600 text-xs text-white px-3 py-1.5 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+          disabled={isLoading}
+          className={`bg-blue-600 text-xs text-white px-3 py-1.5 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 ${
+            isLoading ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
         >
-          Save Settings
+          {isLoading ? 'Saving...' : 'Save Settings'}
         </button>
       </form>
     </div>
