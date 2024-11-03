@@ -1,12 +1,23 @@
 from fastapi import UploadFile
 from byaldi import RAGMultiModalModel
 from .converter import convert_docs_to_pdfs
-from logger import get_logger
+from .logger import get_logger
 import os
-from werkzeug.utils import secure_filename
+import re
+import unicodedata
 from fastapi import HTTPException
 
 logger = get_logger(__name__)
+
+def secure_filename(filename):
+    """
+    Replacement for werkzeug.utils.secure_filename
+    """
+    filename = unicodedata.normalize('NFKD', filename)
+    filename = filename.encode('ascii', 'ignore').decode('ascii')
+    filename = re.sub(r'[^\w\s.-]', '', filename).strip()
+    filename = re.sub(r'[-\s]+', '-', filename)
+    return filename
 
 async def index_documents(
     files: list[UploadFile], 

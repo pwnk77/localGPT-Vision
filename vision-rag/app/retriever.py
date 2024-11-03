@@ -4,7 +4,7 @@ from io import BytesIO
 import base64
 import os
 import hashlib
-from logger import get_logger
+from .logger import get_logger
 
 logger = get_logger(__name__)
 
@@ -22,7 +22,7 @@ async def retrieve_documents(
         
         results = RAG.search(query, k=k)
         images = []
-        session_images_folder = os.path.join('static', 'images', session_id)
+        session_images_folder = os.path.join('uploaded_documents', session_id, 'images')
         os.makedirs(session_images_folder, exist_ok=True)
         
         for result in results:
@@ -39,8 +39,7 @@ async def retrieve_documents(
                 if not os.path.exists(image_path):
                     image.save(image_path, format='PNG')
                     
-                relative_path = os.path.join('images', session_id, image_filename)
-                images.append(relative_path)
+                images.append(image_path)
                 
         logger.info(f"Retrieved {len(images)} images for session {session_id}")
         return images

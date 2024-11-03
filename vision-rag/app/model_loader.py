@@ -5,7 +5,7 @@ from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
 import os
 from dotenv import load_dotenv
 import google.generativeai as genai
-from logger import get_logger
+from .logger import get_logger
 
 load_dotenv()
 logger = get_logger(__name__)

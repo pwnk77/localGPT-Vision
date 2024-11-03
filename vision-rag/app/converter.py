@@ -1,7 +1,7 @@
 from fastapi import UploadFile
 from docx2pdf import convert
 import os
-from logger import get_logger
+from .logger import get_logger
 
 logger = get_logger(__name__)
 

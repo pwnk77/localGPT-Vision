@@ -15,3 +15,4 @@ groq  # For Groq API
 openai  # For GPT-4
 anthropic  # For Claude
 llama-cpp-python  # For Llama models
+werkzeug  # For secure_filename utility

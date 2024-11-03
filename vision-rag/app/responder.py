@@ -3,7 +3,7 @@ from PIL import Image
 from .model_loader import load_model
 import base64
 import os
-from logger import get_logger
+from .logger import get_logger
 from io import BytesIO
 
 logger = get_logger(__name__)

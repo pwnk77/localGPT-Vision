@@ -25,7 +25,7 @@ bin/
 include/
 lib/
 share/
-
+venv/
 
 # Environment Variables
 .env
@@ -36,7 +36,6 @@ logs/
 
 # Data Directories
 uploaded_documents/
-static/images/
 sessions/
 .byaldi/
 
