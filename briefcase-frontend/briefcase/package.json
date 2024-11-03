@@ -21,6 +21,9 @@
     "react": "^18",
     "react-dom": "^18",
     "react-resizable-panels": "^2.1.6",
+    "slate": "^0.110.2",
+    "slate-history": "^0.110.3",
+    "slate-react": "^0.111.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },

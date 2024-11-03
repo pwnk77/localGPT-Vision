@@ -53,7 +53,7 @@ export default function Page() {
         <h1 className="text-xl font-semibold">briefcase</h1>
       </header>
       <div className="flex-1 overflow-hidden">
-        <ResizablePanelGroup direction="horizontal">
+        <ResizablePanelGroup direction="horizontal" className="p-2 gap-2">
           <ResizablePanel
             defaultSize={20}
             minSize={5}
@@ -63,7 +63,7 @@ export default function Page() {
             onCollapse={() => setLeftSidebarCollapsed(true)}
             onExpand={() => setLeftSidebarCollapsed(false)}
             className={cn(
-              "bg-muted/50",
+              "bg-muted/50 rounded-lg",
               leftSidebarCollapsed && "min-w-[50px] transition-all duration-300 ease-in-out"
             )}
           >
@@ -97,7 +97,7 @@ export default function Page() {
             </div>
           </ResizablePanel>
           <ResizableHandle withHandle />
-          <ResizablePanel defaultSize={55}>
+          <ResizablePanel defaultSize={55} className="rounded-lg">
             <Editor 
               activeTab={activeTab}
               openTabs={openTabs}
@@ -115,7 +115,7 @@ export default function Page() {
             onCollapse={() => setRightSidebarCollapsed(true)}
             onExpand={() => setRightSidebarCollapsed(false)}
             className={cn(
-              "bg-muted/50",
+              "bg-muted/50 rounded-lg",
               rightSidebarCollapsed && "min-w-[50px] transition-all duration-300 ease-in-out"
             )}
           >
