@@ -1,0 +1,17 @@
+fastapi>=0.104.1
+uvicorn>=0.24.0
+python-multipart  # For file uploads
+pydantic>=2.5.2
+byaldi  # For RAG functionality
+torch>=2.1.0
+torchvision>=0.16.0
+google-generativeai  # For Gemini
+docx2pdf  # For document conversion
+transformers  # For Hugging Face models
+python-dotenv  # For environment variables
+Pillow  # For image processing
+markdown  # For text formatting
+groq  # For Groq API
+openai  # For GPT-4
+anthropic  # For Claude
+llama-cpp-python  # For Llama models
