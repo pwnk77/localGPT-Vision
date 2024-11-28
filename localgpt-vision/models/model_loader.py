@@ -4,12 +4,7 @@ import os
 import torch
 from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
 from transformers import MllamaForConditionalGeneration
-from vllm.sampling_params import SamplingParams
-from transformers import AutoModelForCausalLM
 import google.generativeai as genai
-from vllm import LLM
-from groq import Groq
-
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -18,6 +13,22 @@ load_dotenv()
 from logger import get_logger
 
 logger = get_logger(__name__)
+
+# Optional imports with error handling
+try:
+    from vllm import LLM
+    from vllm.sampling_params import SamplingParams
+    VLLM_AVAILABLE = True
+except ImportError:
+    logger.warning("VLLM not available. Some GPU functions will be limited.")
+    VLLM_AVAILABLE = False
+
+try:
+    from groq import Groq
+    GROQ_AVAILABLE = True
+except ImportError:
+    logger.warning("Groq not available.")
+    GROQ_AVAILABLE = False
 
 # Cache for loaded models
 _model_cache = {}
@@ -62,14 +73,11 @@ def load_model(model_choice):
         if not api_key:
             raise ValueError("GOOGLE_API_KEY not found in .env file")
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel('gemini-1.5-flash-002')  # Use the appropriate model name
+        model = genai.GenerativeModel('gemini-1.5-flash-002')
         return model, None
 
-
     elif model_choice == 'llama-vision':
-        # Load Llama-Vision model
         device = detect_device()
-        # model_id = "meta-llama/Llama-3.2-11B-Vision-Instruct"
         model_id = "alpindale/Llama-3.2-11B-Vision-Instruct"
         model = MllamaForConditionalGeneration.from_pretrained(
             model_id,
@@ -82,45 +90,9 @@ def load_model(model_choice):
         logger.info("Llama-Vision model loaded and cached.")
         return _model_cache[model_choice]
     
-    elif model_choice == "pixtral":
-        device = detect_device()
-        mistral_models_path = os.path.join(os.getcwd(), 'mistral_models', 'Pixtral')
-        
-        if not os.path.exists(mistral_models_path):
-            os.makedirs(mistral_models_path, exist_ok=True)
-            from huggingface_hub import snapshot_download
-            snapshot_download(repo_id="mistralai/Pixtral-12B-2409", 
-                              allow_patterns=["params.json", "consolidated.safetensors", "tekken.json"], 
-                              local_dir=mistral_models_path)
-
-        from mistral_inference.transformer import Transformer
-        from mistral_common.tokens.tokenizers.mistral import MistralTokenizer
-        from mistral_common.generate import generate
-
-        tokenizer = MistralTokenizer.from_file(os.path.join(mistral_models_path, "tekken.json"))
-        model = Transformer.from_folder(mistral_models_path)
-        
-        _model_cache[model_choice] = (model, tokenizer, generate, device)
-        logger.info("Pixtral model loaded and cached.")
-        return _model_cache[model_choice]
-    
-    elif model_choice == "molmo":
-        device = detect_device()
-        processor = AutoProcessor.from_pretrained(
-            'allenai/MolmoE-1B-0924',
-            trust_remote_code=True,
-            torch_dtype='auto',
-            device_map='auto'
-        )
-        model = AutoModelForCausalLM.from_pretrained(
-            'allenai/MolmoE-1B-0924',
-            trust_remote_code=True,
-            torch_dtype='auto',
-            device_map='auto'
-        )
-        _model_cache[model_choice] = (model, processor, device)
-        return _model_cache[model_choice]
     elif model_choice == 'groq-llama-vision':
+        if not GROQ_AVAILABLE:
+            raise ImportError("Groq package not installed. Please install with 'pip install groq'")
         api_key = os.getenv("GROQ_API_KEY")
         if not api_key:
             raise ValueError("GROQ_API_KEY not found in .env file")
@@ -128,6 +100,7 @@ def load_model(model_choice):
         _model_cache[model_choice] = client
         logger.info("Groq Llama Vision model loaded and cached.")
         return _model_cache[model_choice]
+    
     else:
         logger.error(f"Invalid model choice: {model_choice}")
         raise ValueError("Invalid model choice.")

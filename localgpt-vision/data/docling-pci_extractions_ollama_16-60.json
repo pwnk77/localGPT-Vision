@@ -1,0 +1,676 @@
+{
+    "table_rows": [
+        {
+            "control_objective": "All software critical assets are identified and classified.",
+            "test_requirements": [
+                "1.1.a The assessor shall examine evidence to confirm that information is maintained that details all sensitive data that is stored, processed, and/or transmitted by the software. At a minimum, this shall include all payment data; authentication credentials; cryptographic keys and related data (such as IVs and seed data for random number generators); and system configuration data (such as registry entries, platform environment variables, prompts for plaintext data in software allowing for the entry of PIN data, or configuration scripts).",
+                "1.1.b The assessor shall examine evidence to confirm that information is maintained that describes where sensitive data is stored. This includes the storage of sensitive data in temporary storage (such as volatile memory), semi-permanent storage (such as RAM disks), non-volatile storage (such as magnetic and flash storage media), or in specific locations or form factors (such as with an embedded system that is only capable of local storage)."
+            ],
+            "guidance": "Software security controls are designed and implemented to protect the confidentiality and/or integrity of critical assets. To make sure these controls are effective and appropriate, the software vendor should identify all sensitive data the software collects, stores, processes, or transmits, as well as all sensitive functions and resources it either provides or uses."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "1.1.e The assessor shall examine evidence and test the software to identify the transaction types and/or card data elements that are supported by the software, and to confirm that the data for all of these is supported by the evidence examined in Test Requirements 1.1.a through 1.1.c.",
+                "1.1.f The assessor shall examine evidence and test the software to identify the cryptographic implementations that are supported by the software (including cryptography used for storage, transport, and authentication), and to confirm that the cryptographic data for all of these implementations is supported by the evidence examined in Test Requirements 1.1.a through 1.1.c, and that the evidence describes whether these are implemented by the software itself, through third-party software, or as functions of the execution environment.",
+                "1.1.g The assessor shall examine evidence and test the software to identify the accounts and authentication credentials supported by the software (including both default and user-created accounts) and to confirm that these accounts and",
+                "1.1.h The assessor shall examine evidence and test the software to identify the configuration options provided by the software that can impact sensitive data (including those provided through separate files or scripts, internal functions, or menus and options), and to confirm that these are supported by the evidence examined in Test Requirements 1.1.a through 1.1.c."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "1.3 Critical assets are classified.",
+            "test_requirements": [
+                "1.2.b The assessor shall examine evidence to confirm that information is maintained that clearly describes how and where the sensitive data associated with these functions and resources is stored. This includes the storage of sensitive data in temporary storage (such as volatile memory), semi-permanent storage (such as RAM disks), and non-volatile storage (such as magnetic and flash storage media). The assessor shall confirm that this information is supported by the evidence examined in Test Requirement 1.1.a through 1.1.c.",
+                "1.2.c Where the sensitive functions or sensitive resources are provided by third-party software or systems, the assessor shall examine evidence and test the software to confirm that the software correctly follows available guidance for the third-party software. Note: For example, by reviewing the security policy of a PTS or FIPS140-2 or 140-3 approved cryptographic system.",
+                "1.3 The assessor shall examine evidence to confirm that: · The software vendor defines criteria for classifying critical assets in accordance with the confidentiality, integrity, and resiliency requirements for each critical asset. · An inventory of all critical assets with appropriate classifications is maintained."
+            ],
+            "guidance": "Critical assets represent the sensitive data, functions, and resources that have business value and require confidentiality, integrity, or resiliency protection. There are numerous analysis techniques that can be used to identify critical assets, including Mission"
+        },
+        {
+            "control_objective": "Control Objective 2: Secure Defaults Default privileges, features, and functions are restricted to only those necessary to provide a secure default configuration.",
+            "test_requirements": [
+                "2.1.a The assessor shall examine evidence and test the software to identify any software APIs or other interfaces that are provided or exposed by default upon installation, initialization, or first use. For each of these interfaces, the assessor shall confirm that the vendor has documented and justified its use as part of the software architecture. Testing shall include methods to reveal any exposed interfaces or other software functionality (such as scanning for listening services where applicable). Note: This includes functions that are auto-enabled as required during operation of the software. Software's default configuration should only expose functionality that has been reviewed, justified, and approved. This should include the default configuration for all software APIs, protocols, 2.1.b The assessor shall test the software to determine whether any of the interfaces identified in Test Requirement 2.1.a rely",
+                "2.1 The assessor shall examine evidence and test the software to identify any software APIs or other interfaces that are provided or exposed by default upon installation, initialization, or first use. For each of these interfaces, the assessor shall confirm that the vendor has documented and justified its use as part of the software architecture. Testing shall include methods to reveal any exposed interfaces or other software functionality (such as scanning for listening services where applicable). Note: This includes functions that are auto-enabled as required during operation of the software. Software's default configuration should only expose functionality that has been reviewed, justified, and approved. This should include the default configuration for all software APIs, protocols, 2.1.b The assessor shall test the software to determine whether any of the interfaces identified in Test Requirement 2.1.a rely"
+            ],
+            "guidance": "Software often contains functionality (for example, web services, administrative interface, application heartbeat, etc.) that is optional and is generally unused by many users. This functionality typically does not receive the same attention as standard or essential software functions and services, and often contains security weaknesses that can be exploited by malicious users to bypass security controls. To ensure a secure software deployment, the daemons, listeners, components, etc."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "2.1.d The assessor shall test the software to determine whether any of the interfaces identified in Test Requirement 2.1.a expose functions or services that have publicly disclosed vulnerabilities by conducting a search on the exposed protocols, methods, or services in public vulnerability repositories such as that maintained within the National Vulnerability Database."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "2.1.e Where known vulnerabilities in exposed interfaces exist, the assessor shall examine evidence and test the software to confirm the following:"
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "· Methods are implemented to mitigate the exploitation of these weaknesses."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "· The risks posed by the use of known vulnerable protocols, functions, or ports are documented."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "· Clear and sufficient guidance on how to correctly implement sufficient security to meet applicable control objectives in this standard is provided to stakeholders in accordance with Control Objective 12.1."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "Note: The assessor should reference the vendor threat information defined in Control Objective 4.1 for this item."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "2.1.f The assessor shall examine evidence to identify any third-party modules used by the software and to confirm that any vendor.",
+                "Where access to third-party functions is prevented through implemented protection methods, the assessor shall test the software to confirm that it does not rely on a lack of knowledge of such functions as a security mitigation method by simply not documenting an otherwise accessible API interface  and to confirm that the protection methods are effective at preventing the insecure use of such third-party functions."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "2.2 All software security controls, features, and functions are enabled upon software installation, initialization, or first use. Note: Specific software security controls required to protect the integrity and confidentiality of sensitive data, sensitive functions",
+            "test_requirements": [
+                "2.2.a The assessor shall examine evidence and test the software to identify all software security controls, features and functions relied upon by the software for the protection of critical assets and to confirm that all are enabled upon installation, initialization, or first use of the software.",
+                "2.2.b Where any software security controls, features and functions are enabled only upon initialization or first use, the assessor shall test the software to confirm that sensitive data is"
+            ],
+            "guidance": "As previously noted earlier in guidance, software security controls are designed and implemented to protect the confidentiality and integrity of critical assets. Examples of such software security controls include authentication and authorization mechanisms, cryptographic controls, and controls to prevent leakage of sensitive data. Default software settings should result in a secure"
+        },
+        {
+            "control_objective": "2.3 Default authentication credentials or keys for built-in accounts are not used after installation, initialization, or first use.",
+            "test_requirements": [
+                "2.3.a The assessor shall examine evidence to identify the default credentials, keys, certificates, and other critical assets used for authentication by the software. Note: The assessor should refer to evidence obtained in the testing of Control Objectives 1, 5, and 7 to determine the"
+            ],
+            "guidance": "To protect against unauthorized access, payment software should prevent the use of built-in accounts until the default authentication credentials can be changed. (continued on next page)"
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "2.3.b The assessor shall test the software to confirm that all default credentials, keys, certificates, and other critical assets used for authentication by the software are supported by the evidence examined. Note: It is expected that this analysis will include, but not necessarily be limited to, the use of entropy analysis tools to look for hardcoded cryptographic keys, searches for common cryptographic function call and structures such as S-Boxes and big-number library functions (and tracing these functions backwards to search for hardcoded keys), as well as checking for strings containing common user account names or password values."
+            ],
+            "guidance": "Built-in accounts with known credentials such as default or empty passwords, or default keys are often overlooked during installation, initial configuration, or use, and can be used by a malicious user to bypass access controls. Therefore, the software should not use or rely on the default credentials for its operation upon installation, initialization, or first use."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "2.3.c Where user input or interaction is required to disable or change any authentication credentials or keys for built-in accounts, the assessor shall examine evidence to confirm that guidance on configuring these options is provided to stakeholders in accordance with Control Objective 12.1."
+            ],
+            "guidance": "Built-in accounts with known credentials such as default or empty passwords, or default keys are often overlooked during installation, initial configuration, or use, and can be used by a malicious user to bypass access controls. Therefore, the software should not use or rely on the default credentials for its operation upon installation, initialization, or first use."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "2.3.d The assessor shall test the software to confirm that default authentication credentials or keys for built-in accounts are not used by the authentication and access control mechanisms implemented by the software after software installation, initialization, or first use."
+            ],
+            "guidance": "Built-in accounts with known credentials such as default or empty passwords, or default keys are often overlooked during installation, initial configuration, or use, and can be used by a malicious user to bypass access controls. Therefore, the software should not use or rely on the default credentials for its operation upon installation, initialization, or first use."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "Note: The assessor should refer to evidence obtained in the testing of Control Objective 5 to determine the authentication and access control mechanisms implemented by the software."
+            ],
+            "guidance": "Built-in accounts with known credentials such as default or empty passwords, or default keys are often overlooked during installation, initial configuration, or use, and can be used by a malicious user to bypass access controls. Therefore, the software should not use or rely on the default credentials for its operation upon installation, initialization, or first use."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "2.3.e The assessor shall test the software to confirm that cryptographic keys used for authentication are not used for other purposes, such as protecting sensitive data during storage and transmission. Note: The assessor should refer to evidence obtained in the"
+            ],
+            "guidance": "Built-in accounts with known credentials such as default or empty passwords, or default keys are often overlooked during installation, initial configuration, or use, and can be used by a malicious user to bypass access controls. Therefore, the software should not use or rely on the default credentials for its operation upon installation, initialization, or first use."
+        },
+        {
+            "control_objective": "2.4 The privileges and resources requested by the software from its execution environment are limited to those necessary for the operation of the software.",
+            "test_requirements": [
+                "2.4.a The assessor shall examine evidence to identify the privileges and resources required by the software and to confirm that information is maintained that describes and reasonably justifies all privileges and resources required, including explicit permissions for access to resources, such as cameras, contacts, etc."
+            ],
+            "guidance": "In many attacks on software or underlying systems, the software is often used to execute functions on the underlying operating systems or to abuse accessible external resources. When the software requires excessive permissions, such permissions may be exploited by a malicious user."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "2.4.b Where limiting access is not possible due to the architecture of the solution or the execution environment in which the software is executed  the assessor shall examine evidence to identify all mechanisms implemented by the software to prevent unauthorized access, exposure, or modification of critical assets, and to confirm that guidance on properly implementing and configuring these mechanisms is provided to stakeholders in accordance with Control Objective 12.1."
+            ],
+            "guidance": "To minimize the software's attack surface, the software should only request and be granted the minimum required privileges for its intended operation. For example, system service accounts that the software uses to operate, or accounts used by the software to access underlying components such as a database or invoke web-services calls should not require permissions that exceed the minimum necessary for the software to perform its operations."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "2.4.c The assessor shall test the software to confirm that access permissions and privileges are assigned according to the evidence examined in Test Requirement 2.4.a. The assessor shall, where possible, use suitable tools for the platform on which the software is installed to review the permissions and privileges of the software itself, as well as the permissions and privileges of any resources, files, or additional elements generated or loaded by the software during use. Note: Where the above testing is not possible, the assessor shall justify why this is the case and that the testing that has been performed is sufficient."
+            ],
+            "guidance": "The same concept applies to resources used by the software. The software should be granted access to only the minimum required resources for its expected operation. For example, mobile applications that do not require access to the camera or photographs should not request such access unless they are a necessary part of the software architecture. Similarly, software should not have access to sensitive files (for example, /etc/passwd) unless there is a legitimate need for the software to access those files."
+        },
+        {
+            "control_objective": "2.5 Default privileges for built-in accounts are limited to those necessary for their intended purpose and function.",
+            "test_requirements": [
+                "2.5.a The assessor shall examine the evidence to identify all default accounts provided by the software and to confirm that the privileges assigned to these accounts are justified and reasonable.",
+                "2.5.b The assessor shall test the software to confirm that all default accounts provided or used by the software are supported by the evidence examined in Test Requirement 2.5.a."
+            ],
+            "guidance": "In support of the principle of \"least privilege, \" built-in accounts should only have the privileges required for the intended function of the account, including access to sensitive data and resources as well as the ability to execute sensitive functions. For example, a built-in administrator account may require the ability to configure the software and associated user accounts, but not the ability to access areas containing sensitive data. Applying the principle of least privilege to user accounts helps prevent users without sufficient knowledge about the software from incorrectly or accidentally changing the software configuration or its security settings. Enforcing least privilege also helps to minimize the effects of unauthorized access to software user accounts. To limit access to sensitive data, functions, and resources to only those accounts that require such access, the level of privilege and access required should be defined and documented for each built-in account in an access matrix such that its assigned functions may be performed, but no additional or unnecessary access or privileges are granted."
+        },
+        {
+            "control_objective": "Control Objective 3: Sensitive Data Retention Retention of sensitive data is minimized.",
+            "test_requirements": [
+                "3.1.a The assessor shall examine evidence to identify the sensitive data that is collected by the software for use beyond any one transaction, the default time period for which it is retained, and whether the retention period is user-configurable, and to confirm that the purpose for retaining the sensitive data in this manner is justified and reasonable. Note: The assessor should refer to evidence obtained in the testing of Control Objective 1.1 to determine the sensitive data retained by the software."
+            ],
+            "guidance": "To prevent the unauthorized disclosure of sensitive data to unauthorized parties, the software should retain sensitive data only for the duration necessary to perform the specific operation for which sensitive data is collected. Retaining sensitive data longer than required presents opportunity for the data to be mishandled, misused, or accidentally disclosed. This control objective differentiates between transient sensitive data retained temporarily and"
+        },
+        {
+            "control_objective": "3.2 Transient sensitive data is retained only for the duration necessary to fulfill a legitimate business purpose.",
+            "test_requirements": [
+                "3.1.d Where user input or interaction is required to configure the retention period of sensitive data, the assessor shall examine evidence to confirm that guidance on configuring these options is provided to stakeholders in accordance with Control Objective 12.1."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "3.2 Transient sensitive data is retained only for the duration necessary to fulfill a legitimate business purpose.",
+            "test_requirements": [
+                "3.2.a Using information obtained in Test Requirement 1.1.a, the assessor shall examine evidence to identify all sensitive data that is retained by the software for transient use, what triggers the secure deletion of this data, and to confirm that the purposes for retaining the data are justified and reasonable. This includes data that is stored only in memory during the operation of the software.",
+                "3.2.b Using information obtained in Test Requirement 1.2.a, the assessor shall test the software to confirm that all available functions or services that retain transient sensitive data are supported by evidence examined in Test Requirement 3.2.a and do not use immutable objects.",
+                "3.2.c The assessor shall examine evidence and test the software to determine whether the software facilitates the storage of transient sensitive data for the purposes of debugging, error finding or testing of systems, and to confirm that such data is protected in accordance with Control Objective 6.1. Any function that allows for the storage of transient sensitive data for these purposes must be explicitly enabled through an interface that requires interaction and authorization by the user. Closure of the software must result in the termination of this debugging state, such that it requires explicit re-enablement when the software is next executed, and any"
+            ],
+            "guidance": "Sensitive data elements collected in conjunction with software operations should only be retained for as long as required to complete that operation or related transaction. After payment processing is complete, all transient sensitive data should be securely deleted from all locations where it has been retained such that any subsequent process, component, function, application, or user within the environment may not access or capture the sensitive data. Software vendors should also be aware of and account for how other aspects of the software architecture (such as the software-development language and operating environment) may affect how and where transient sensitive data is retained. For example, operating-system usage of swap partitions or virtual memory files can cause information that should have been transient to persist longer than intended. If any sensitive data must be used for debugging or troubleshooting purposes, the software should only capture the minimum amount of data necessary and store it securely in a known location."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "3.2.d Where the retention of transient sensitive data requires user input or interaction, the assessor shall examine evidence to confirm that guidance on configuring these options is provided to stakeholders in accordance with Control Objective 12.1."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "3.3 The software protects the confidentiality and integrity of sensitive data (both transient and persistent) during retention.",
+            "test_requirements": [
+                "3.3.a The assessor shall examine the evidence to identify the methods implemented to protect sensitive data during storage.",
+                "3.3.b Where sensitive data is stored outside of temporary variables within the code itself, the assessor shall test the software to confirm that sensitive data is protected using either strong cryptography or other methods that provide an equivalent level of security.",
+                "3.3.c Where protection methods use cryptography, the assessor shall examine evidence and test the software to confirm that the cryptographic implementation complies with Control Objective 7 of this standard.",
+                "3.3.d Where sensitive data is protected using methods other than strong cryptography, the assessor shall examine evidence and test the software to confirm that the protections are present in all environments where the software is designed to be executed and are implemented correctly."
+            ],
+            "guidance": "The software should maintain security controls and mechanisms to protect all sensitive data while it is retained by the software. Examples of software security controls include writing to a secure memory location or using cryptography to render the data unreadable without appropriate decryption keys. The Software Protection Mechanisms section includes several specific software security controls that are required to be implemented to protect sensitive data during storage, processing, or transmission. Those software security controls should be analyzed to determine their applicability to the types of sensitive data retained by the software."
+        },
+        {
+            "control_objective": "3.4 The software securely deletes persistent sensitive data when it is no longer required.",
+            "test_requirements": [
+                "3.4.a The assessor shall examine evidence to identify the methods implemented to render persistent sensitive data irretrievable and to confirm that sensitive data is rendered unrecoverable after the process is complete.",
+                "3.4.b The assessor shall examine evidence and test the software to identify any platform or implementation level issues that complicate the secure deletion of non-transient sensitive data and to confirm that any non-transient sensitive data is securely deleted using a method that ensures that the data is rendered unrecoverable. Methods may include (but are not necessarily limited to) overwriting the data, deletion of cryptographic keys (of sufficient strength) that have been used to encrypt the data, or platform-specific functions that provide for secure deletion. Methods must accommodate for platform-specific issues, such as flash wear-levelling algorithms or SSD over-provisioning, which may complicate simple over-writing methods.",
+                "3.4.c The assessor shall test the software using forensic tools to identify any non-transient sensitive data residue in the execution environment, and to confirm that the methods attested by the software vendor are correctly implemented and applied to all sensitive data. This analysis should accommodate for the data structures and methods used to store the sensitive data (for example, by examining file systems at the allocation level and translating data formats to identify sensitive data elements) and cover all non-transient sensitive data types."
+            ],
+            "guidance": "Secure deletion is the process of rendering data irretrievable to other people, processes, or systems. Secure deletion may be required at the end of a software-specific operation or upon completion of user-specified retention requirements. In the latter case, the software should be able to securely delete the sensitive data after expiry of the user-specified retention period."
+        },
+        {
+            "control_objective": "3.5 Transient sensitive data is securely deleted from temporary storage facilities automatically by the software once the purpose for which it is retained is satisfied.",
+            "test_requirements": [
+                "3.5.a The assessor shall examine evidence to identify the methods implemented to render transient sensitive data irretrievable and to confirm that sensitive data is unrecoverable after the process is complete. Note: This includes data which may be stored only temporarily in program memory / variables during operation of the software.",
+                "3.5.b The assessor shall examine evidence and test the software to identify any platform or implementation level issues that complicate the erasure of such transient sensitive data, such as abstraction layers between the code and the hardware execution environment, and to confirm that methods have been implemented to minimize the risk posed by these complications.",
+                "3.5.c The assessor shall test the software to identify any sensitive data residue in the execution environment and to confirm that the methods implemented are implemented correctly and enforced for all transient sensitive data. This analysis should accommodate for the data structures and methods used to store the sensitive data (for example, by examining file systems at the allocation level and translating data formats to identify sensitive data elements) and cover all non-transient sensitive data types."
+            ],
+            "guidance": "Where sensitive data is only retained temporarily to perform a specific function (such as a payment transaction), mechanisms are required to securely delete the sensitive data once the specific function has completed. Transient sensitive data is often erased from temporary storage locations after processing is in volatile memory (RAM) or in other storage such as swap files/partitions or log files. where sensitive data is stored, regardless of the complete. However, that data may remain resident locations for longer periods than anticipated (such Software vendors should account for all locations intended duration of storage, and ensure that such data is securely deleted once the purpose for which the software collected the data has been satisfied."
+        },
+        {
+            "control_objective": "3.6 The software does not disclose sensitive data through unintended channels.",
+            "test_requirements": [
+                "3.6.a The assessor shall examine evidence to confirm the software vendor has performed a thorough analysis to account for all sensitive data disclosure attack vectors including, but not limited to:  · Error messages, error logs, or memory dumps.  · Execution environments that may be vulnerable to remote side-channel attacks to expose sensitive data, such as attacks that exploit cache timing or branch prediction within the platform processor. Proactive measures to ensure that sensitive data is not inadvertently 'leaked' should be implemented by the software vendor or within the software. Disclosure of sensitive data to unauthorized parties often occurs through unknown or unintended outputs or channels. For example: sensitive data could be unintentionally disclosed through error- or exception-handling routines, logging or debugging channels, third-party services and/or components, or through",
+                "3.6.b The assessor shall examine evidence, including the results of the analysis described in Test Requirement 3.6.a, and"
+            ],
+            "guidance": "3.6.a The assessor shall examine evidence to confirm the software vendor has performed a thorough analysis to account for all sensitive data disclosure attack vectors including, but not limited to:  · Error messages, error logs, or memory dumps.  · Execution environments that may be vulnerable to remote side-channel attacks to expose sensitive data, such as attacks that exploit cache timing or branch prediction within the platform processor. Proactive measures to ensure that sensitive data is not inadvertently 'leaked' should be implemented by the software vendor or within the software. Disclosure of sensitive data to unauthorized parties often occurs through unknown or unintended outputs or channels. For example: sensitive data could be unintentionally disclosed through error- or exception-handling routines, logging or debugging channels, third-party services and/or components, or through 3.6.b The assessor shall examine evidence, including the results of the analysis described in Test Requirement 3.6.a, and"
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "Automatic storage or exposure of sensitive data by the underlying execution environment, such as through swap-files, system error logging, keyboard spelling, and auto-correct features."
+            ],
+            "guidance": "files, keyboards, displays, and functions.  · underlying execution environment, such as through swap- files, system error logging, keyboard spelling, and auto- correct features.  · Sensors or services provided by the execution environment that may be used to extract or leak sensitive data, such as through use of an accelerometer to capture input of a passphrase to be used as a seed for a cryptographic key, or through capture of sensitive data through use of cameras or near-field communication (NFC) interfaces. 3.6.b The assessor shall examine evidence, including the results of the analysis described in Test Requirement 3.6.a, and"
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "· underlying execution environment that may be used to extract or leak sensitive data, such as through use of an accelerometer to capture input of a passphrase to be used as a seed for a cryptographic key, or through capture of sensitive data through use of cameras or near-field communication (NFC) interfaces. 3.6.b The assessor shall examine evidence, including the results of the analysis described in Test Requirement 3.6.a, and"
+            ],
+            "guidance": "the use of shared resources such as memory, disk, Protective mechanisms, whether process or programmatic in nature, should be implemented to ensure that sensitive data is not accidentally disclosed through such means."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "3.6.d The assessor shall test the software to identify any sensitive data residue in the execution environment, and to confirm that protection methods are implemented correctly and the software does not expose or otherwise reveal sensitive data to unauthorized users."
+            ],
+            "guidance": "Guidance"
+        },
+        {
+            "control_objective": "Control Objective 4: Critical Asset Protection",
+            "test_requirements": [
+                "4.1.a The assessor shall examine evidence to confirm that the software vendor has identified and documented relevant attack scenarios for the software.",
+                "4.1.b The assessor shall examine evidence to determine whether any specific industry-standard methods or guidelines were used to identify relevant attack scenarios. Where such industry standards are not used, the assessor shall for the attack scenarios applicable to the software under evaluation."
+            ],
+            "guidance": "Software vendors should evaluate the design of their payment software to identify attack scenarios applicable to the software and should document the results of that analysis. Documentation should describe the various aspects of the code that could be attacked (including tasks or actions that frameworks and libraries do on the software's behalf), the difficulty in mounting a successful attack, the mitigation techniques used to protect against such attacks, and the methodology used for measuring the likelihood and impact of each potential attack method. When the software relies on execution environment confirm that the methodology used provides equivalent coverage"
+        },
+        {
+            "control_objective": "4.1 The assessor shall examine evidence to confirm the following: · A formal owner of the software is assigned. This may be a role for a specific individual or a specific name, but evidence must clearly show an individual who is accountable for the security of the software. · A methodology is defined for measuring the likelihood and impact for any exploit of the system.",
+            "test_requirements": [
+                "4.1.c The assessor shall examine evidence to confirm the following:  · A formal owner of the software is assigned. This may be a role for a specific individual or a specific name, but evidence must clearly show an individual who is accountable for the security of the software.  · A methodology is defined for measuring the likelihood and impact for any exploit of the system."
+            ],
+            "guidance": "4.1.c The assessor shall examine evidence to confirm the following:  · A formal owner of the software is assigned. This may be a role for a specific individual or a specific name, but evidence must clearly show an individual who is accountable for the security of the software.  · A methodology is defined for measuring the likelihood and impact for any exploit of the system."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "Generic threat methods and types that may be applicable to the software are documented.",
+                "All critical assets managed, and all sensitive resources used by the system are documented. All entry and egress points for sensitive data, as well as the authentication and trust model applied to each of these entry/egress points, are documented."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "All data flows, network segments, and authentication/privilege boundaries are documented.",
+                "All static IPs, domains, URLs, or ports required by the software for operation are documented.",
+                "Considerations for cryptography elements like cipher modes, and protecting against relevant attacks such as timing attacks, padded oracles, brute force, 'rainbow table' attacks, and dictionary attacks against the input domain are documented."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "Execution environment implementation specifics or assumptions, such as network configurations and operating system security configurations, are documented. Considerations for the software execution environment, the"
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "4.2 Software security controls are implemented to mitigate software attacks.",
+            "test_requirements": [
+                "4.2.a The assessor shall examine evidence to confirm that one or more mitigation methods are defined for each of the threats identified in Test Requirement 4.1.a or that justification for the lack of mitigations is provided.",
+                "4.2.b Where any mitigations rely on settings within the software, the assessor shall test the software to confirm that such settings are applied by default upon installation, initialization, or first use of the software.",
+                "4.2.c Where user input or interaction can disable, remove, or bypass any such mitigations, the assessor shall examine evidence and test the software to confirm that such action requires authentication and authorization and that guidance on the risk of such actions is provided to stakeholders in accordance with Control Objective 12.1.",
+                "4.2.d When any mitigations rely on features of the execution environment, the assessor shall examine evidence to confirm that guidance is provided to stakeholders on how to enable such settings in accordance with Control Objective 12.1."
+            ],
+            "guidance": "Once attack scenarios are identified, the risk of their occurrence should be mitigated. Software vendors should define and implement mechanisms to protect the software from attacks and reduce the likelihood and impact of successful execution. Any attack scenarios left unmitigated or insufficiently mitigated should be reasonably justified.\n\nThe exact nature of the protection mechanism(s) will depend on the attack scenarios, the development platform, and the software-development languages, as well as the execution environment where the frameworks, libraries, and APIs used by the software are intended to be deployed. To minimize the software attack surface, the software should be developed using secure design principles such as layered defense, application segmentation and isolation (logical), and adaptive response. Examples of software security controls include input and output validation, authentication, authorization, error handling, encryption, logging and monitoring, code review and testing, among others."
+        },
+        {
+            "control_objective": "Control Objective 5: Authentication and Access Control The software implements robust authentication and access control methods to protect the confidentiality, integrity, and resiliency of critical assets.",
+            "test_requirements": [
+                "5.1.a The assessor shall examine evidence to confirm that authentication requirements are defined (i.e., type and number of factors) for all roles based on critical asset classification, the type of access (e.g., local, non-console, remote) and level of privilege.",
+                "Note: The assessor should refer to evidence obtained in the testing of Control Objective 1.3 to determine the classifications for all critical assets.",
+                "5.1.b The assessor shall examine evidence and test the software to confirm that access to critical assets is authenticated and authentication mechanisms are implemented correctly.",
+                "5.1.c Where the software recommends, suggests, relies on, or otherwise supports the use of external mechanisms (such as third-party VPNs, remote desktop features, etc.) to provide secure non-console access to the system on which the software is executed or directly to the software itself, the assessor shall examine evidence to confirm that guidance on how to configure authentication mechanisms correctly is provided to stakeholders in accordance with Control Objective 12.1."
+            ],
+            "guidance": "Secure authentication ensures individual responsibility for actions and allows the software to maintain an effective audit trail of user activity. This expedites issue resolution and containment when the software is misused for malicious purposes. Authentication mechanisms should cover all non-public resources managed by or accessible through the software, as well as sensitive functions that can alter the software operation or impact the security of sensitive data and sensitive resources. Examples of authentication methods include: · Something you know, such as a password or passphrase. · Smart card. · Something you are, such as a biometric. Something you have, such as a token device. To ensure that the implemented authentication mechanisms are adequate to address the risk of unauthorized access to sensitive data or sensitive resources."
+        },
+        {
+            "control_objective": "5.2 Access to critical assets requires unique identification.",
+            "test_requirements": [
+                "5.1.d The assessor shall examine evidence to confirm that sensitive data associated with authentication credentials, including public keys, is identified as a critical asset."
+            ],
+            "guidance": "Other factors such as the type of access (for example, local, non-console, or remote access) and the level of privilege (for example, the ability to invoke sensitive functions such as pause logging or change access privileges) may influence the level of authentication that should be required."
+        },
+        {
+            "control_objective": "5.2 Access to critical assets requires unique identification.",
+            "test_requirements": [
+                "5.2.a The assessor shall examine evidence and test the software to confirm that all implemented authentication methods require unique identification."
+            ],
+            "guidance": "The software should not require the use of any group, shared, or generic accounts. The use of group or shared accounts makes it more difficult to determine which individuals execute specific actions since a given action could have been performed by anyone that has knowledge of the group or shared accounts' authentication credentials."
+        },
+        {
+            "control_objective": "5.2 Access to critical assets requires unique identification.",
+            "test_requirements": [
+                "5.2.b Where interfaces, such as APIs, allow for automated access to critical assets, the assessor shall examine evidence and test the software to confirm that unique identification of different programs or systems accessing the critical assets is required (for example, through use of multiple public keys) and that guidance on configuring a unique credential for each program or system is provided to stakeholders in accordance with Control Objective 12.1."
+            ],
+            "guidance": "The software should not require the use of any group, shared, or generic accounts. The use of group or shared accounts makes it more difficult to determine which individuals execute specific actions since a given action could have been performed by anyone that has knowledge of the group or shared accounts' authentication credentials."
+        },
+        {
+            "control_objective": "5.2 Access to critical assets requires unique identification.",
+            "test_requirements": [
+                "5.2.c Where identification is supplied across a non-console interface, the assessor shall test the software to confirm that authentication credentials are protected from attacks that attempt to intercept them in transit."
+            ],
+            "guidance": "The software should not require the use of any group, shared, or generic accounts. The use of group or shared accounts makes it more difficult to determine which individuals execute specific actions since a given action could have been performed by anyone that has knowledge of the group or shared accounts' authentication credentials."
+        },
+        {
+            "control_objective": "5.2 Access to critical assets requires unique identification.",
+            "test_requirements": [
+                "5.2.d The assessor shall examine evidence to confirm that the guidance provided to stakeholders per Control Objective 12.1 specifically notes that identification and authentication parameters must not be shared between individuals, programs, or in any way that prevents the unique identification of each access to a critical asset."
+            ],
+            "guidance": "The software should not require the use of any group, shared, or generic accounts. The use of group or shared accounts makes it more difficult to determine which individuals execute specific actions since a given action could have been performed by anyone that has knowledge of the group or shared accounts' authentication credentials."
+        },
+        {
+            "control_objective": "5.3 Authentication methods (including session credentials) are sufficiently strong and robust to protect authentication credentials from being forged, spoofed, leaked, guessed, or circumvented.",
+            "test_requirements": [
+                "5.3.a Using information obtained in Test Requirement 4.1.a, the assessor shall examine evidence to confirm that authentication methods implemented by the software are evaluated to identify known vulnerabilities or attack methods involving the authentication method and how the implementation of these methods mitigates against such attacks. The assessor shall also confirm that the evidence examined demonstrates the implementation used in the software was considered. For example, a fingerprint may be uniquely identifiable to an individual, but the ability to spoof or otherwise bypass such technology can be highly dependent on the way the solution is implemented.",
+                "5.3.b The assessor shall examine evidence to confirm that the implemented authentication methods are robust and the"
+            ],
+            "guidance": "The software vendor must evaluate, document, and justify the usage of implemented authentication methods to demonstrate that they are sufficiently strong to protect authentication credentials in the software's intended specific use case or deployment scenario. For example, if the software uses biometric authentication, the vendor may want to identify all points at which a malicious user may attack the authenticator and implement mitigations to address those risks. The authentication mechanism implemented in the software could rely on additional sensors to ensure the provided biometric sample is from a living human and not a forged or spoofed sample. Note: The vendor assessment and robustness justification include consideration of the full path of the user credentials, from any input source (such as a Human Machine Interface or other program), through transition to the execution environment of the software (including any switched/network transmissions and authentication mechanism that relies on a single authentication method may not be sufficient. In such circumstances, the software vendor may want to implement additional mitigation strategies (for example, multi-factor authentication mechanism)."
+        },
+        {
+            "control_objective": "5.4 By default, all access to critical assets is restricted to only those accounts and services that require such access.",
+            "test_requirements": [
+                "5.4.a The assessor shall examine evidence to confirm that information is maintained that identifies and justifies the required access for all critical assets."
+            ],
+            "guidance": "To ensure the software protects the confidentiality and integrity of critical assets, access privileges to those critical assets should be restricted based on vendor-defined access requirements. There are various approaches to implementing privilege restriction, such as trust-based privilege management, attribute-based usage restriction, and dynamic privileges. To reduce the attack surface of the software, the software"
+        },
+        {
+            "control_objective": "5.4 By default, all access to critical assets is restricted to only those accounts and services that require such access.",
+            "test_requirements": [
+                "5.4.b The assessor shall examine evidence and test the software to identify the level of access that is provided to critical assets and to confirm that such access correlates with the evidence examined in Test Requirement 5.4.a. Testing to confirm access to critical assets is properly restricted should include attempts to access critical assets through user accounts, roles, or services which should not have the required privileges."
+            ],
+            "guidance": "authorization mechanisms might limit access to critical assets to only those accounts that need such access (the principle of \"least privilege\"). Other techniques include implementation of Role-Based Access Control (RBAC), Attribute-Based Access Control (ABAC), time-based adjustment to privilege, and dynamic revocation of access authorization."
+        },
+        {
+            "control_objective": "Control Objective 6: Sensitive Data Protection Sensitive data is protected at rest and in transit. Sensitive data is secured anywhere it is stored.",
+            "test_requirements": [
+                "6.1.a The assessor shall examine evidence to confirm that protection requirements for all sensitive data are defined, including requirements for rendering sensitive data with confidentiality considerations unreadable anywhere it is stored persistently. 6.1.b The assessor shall examine evidence and test the software to confirm that security controls are implemented to protect sensitive data during storage and that they address all defined protection requirements and identified attack scenarios."
+            ],
+            "guidance": "Sensitive data must be protected wherever it is stored. In some cases, the integrity may be the primary concern. In other cases, it may be the confidentiality of the sensitive data that must be protected. Sometimes, both the integrity and confidentiality must be secured. The type of data and the purpose for which it is generated will often determine the need for integrity or confidentiality protection. In all cases, those protection requirements must be clearly defined."
+        },
+        {
+            "control_objective": "Sensitive data is secured during Where protection methods rely on the security properties of the execution environment, the assessor shall examine evidence and test the software to confirm that these security properties are valid for all platforms where the software is intended to be deployed. 6.1.f Where protection methods rely on the security properties of third-party software, the assessor shall examine evidence and",
+            "test_requirements": [
+                "6.1.e Where protection methods rely on the security properties of the execution environment, the assessor shall examine evidence and test the software to confirm that these security properties are valid for all platforms where the software is intended to be deployed.",
+                "6.1.f Where protection methods rely on the security properties of third-party software, the assessor shall examine evidence and"
+            ],
+            "guidance": "Where the integrity of sensitive data is a concern, strong cryptography with appropriate key-management practices is one method that could be used to satisfy integrity protection requirements during storage."
+        },
+        {
+            "control_objective": "Sensitive data is secured during The assessor shall examine evidence to identify the locations within the software where sensitive data is transmitted outside of the physical execution environment and to confirm are defined.",
+            "test_requirements": [
+                "6.2.a The assessor shall examine evidence to identify the locations within the software where sensitive data is transmitted outside of the physical execution environment and to confirm protection requirements for the transmission of all sensitive data",
+                "6.2.b The assessor shall examine evidence and test software to confirm that for each of the ingress and egress methods that allow for transmission of sensitive data outside of the physical execution environment, the data is encrypted with strong cryptography prior to transmission or is transmitted over an encrypted channel using strong cryptography."
+            ],
+            "guidance": "To prevent malicious individuals from intercepting or diverting sensitive data while in transit, it must be protected during transmission. One method to protect sensitive data in transit is to encrypt it using strong cryptography prior to Alternatively, the software could establish an authenticated and encrypted channel using only trusted keys and certificates (for authentication) and appropriate encryption strength for the selected"
+        },
+        {
+            "control_objective": "requirements within this standard.",
+            "test_requirements": [
+                "6.2.d Where transport layer encryption is used to secure the transmission of sensitive data, the assessor shall examine evidence and test the software to confirm that all ingress and egress methods enforce a secure version of the protocol with end-point authentication prior to transmission. 6.2.e Where the methods implemented for encrypting sensitive data allow for the use of different types of cryptography or different levels of security, the assessor shall examine evidence and test the software, including capturing software the security of critical assets, the assessor shall examine evidence and test the software to confirm that the use of cryptography is compliant to Control Objective 7. Note: The assessor should refer to Control Objective 7 to identify all requirements for appropriate and correct implementation of cryptography."
+            ],
+            "guidance": "6.2.d Where transport layer encryption is used to secure the transmission of sensitive data, the assessor shall examine evidence and test the software to confirm that all ingress and egress methods enforce a secure version of the protocol with end-point authentication prior to transmission. 6.2.e Where the methods implemented for encrypting sensitive data allow for the use of different types of cryptography or different levels of security, the assessor shall examine evidence and test the software, including capturing software the security of critical assets, the assessor shall examine evidence and test the software to confirm that the use of cryptography is compliant to Control Objective 7. Note: The assessor should refer to Control Objective 7 to identify all requirements for appropriate and correct implementation of cryptography."
+        },
+        {
+            "control_objective": "requirements within this standard.",
+            "test_requirements": [
+                "6.3.b Where cryptographic methods provided by third-party software or aspects of the execution environment or platform on which the application is run are relied upon for the protection of sensitive data, the assessor shall examine evidence and test the software to confirm that guidance on configuring these methods during the installation, initialization, or first use of the software is provided to stakeholders in accordance with Control Objective 12.1."
+            ],
+            "guidance": "Where cryptographic methods provided by third-party software or aspects of the execution environment or platform on which the application is run are relied upon for the protection of sensitive data, the assessor shall examine evidence and test the software to confirm that guidance on configuring these methods during the installation, initialization, or first use of the software is provided to stakeholders in accordance with Control Objective 12.1."
+        },
+        {
+            "control_objective": "Control Objective 7: Use of Cryptography",
+            "test_requirements": [],
+            "guidance": "Cryptography is used appropriately and correctly. 7.1 Industry-standard cryptographic algorithms and methods are used for securing critical assets. Industry-standard cryptographic algorithms and methods are those recognized by industry-accepted standards bodies such as NIST, ANSI, ISO, 7.1.a The assessor shall examine evidence to determine how cryptography is used for the protection of critical assets and to confirm that: · Industry-standard cryptographic algorithms and modes of operation are used. · The use of any other algorithms is in conjunction with industry-standard algorithms. Not all cryptographic algorithms are sufficient to protect sensitive data. It is a well-established principle in software security to utilize only recognized cryptographic implementations based on current, industry-accepted standards such as those from industry bodies like NIST, ANSI, ISO, and EMVCo. The use of proprietary cryptographic implementations"
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [],
+            "guidance": "and EMVCo. Cryptographic algorithms and parameters that are known to be vulnerable are not used. · 7.1.b vendor threat information obtained in Test Requirement 4.1.a, and test the software to confirm that:"
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "7.1.d Where padding is used prior to or during encryption, the assessor shall examine evidence and test the software to confirm that the encryption operation always incorporates an industry-accepted standard padding method.",
+                "7.1.e Where hash functions are used to protect sensitive data, the assessor shall examine evidence and test the software to confirm that: · Only approved, collision-resistant hash algorithms and methods are used for this purpose, and · A salt value of appropriate strength that is generated using a secure random number generator is used to ensure the resultant hash has sufficient entropy."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "7.2 The software supports industry-standard key management processes and procedures. Industry-standard key management processes and procedures are those recognized by industry standards bodies, such as NIST, ANSI, and ISO.",
+            "test_requirements": [
+                "more information on secure random number generators. 7.2.a The assessor shall examine evidence to confirm that information is maintained that describes the following for each key specified in the inventory: · Key label or name · Key location · Effective date · Expiration date · Key purpose/type Whether implemented within or outside the software, the manner in which cryptographic keys are managed is a critical part of the continued security of payment software and the sensitive data it handles. While cryptographic key management processes are often implemented as operational procedures, the software should support secure key-management practices based on industry standards or best practices."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "7.2.b The assessor shall examine evidence and test the software to validate the evidence examined in Test Requirement 7.2.a and to confirm that: · All cryptographic keys that are used for providing security authentication operations. to critical assets (confidentiality, integrity, and authenticity) and other security services to the software have a unique purpose, and that no key is used for both encryption and · All keys have defined generation methods, and no secret or private cryptographic keys relied upon for security of critical assets are shared between software instances, except when a common secret or private key is used for securing the storage of other cryptographic keys that are"
+            ],
+            "guidance": "Industry-standard key management practices should be applied to the following: · The generation of strong cryptographic keys. · Secure cryptographic key distribution. · Secure cryptographic key storage. · Cryptographic key changes for keys that have reached the end of their cryptoperiod. · The retirement or replacement of keys. · The enforcement of split knowledge and dual control (when the software supports manual clear-text cryptographic key-management operations). · The integrity and confidentiality of all secret and private cryptographic keys managed by the software are protected when stored (for example, encrypted with a key-encrypting key that is at least as strong as the data-encrypting key and is stored separately from the data-encrypting key, or as at least two full-length key components or key shares, in accordance with an industry-accepted method). · All keys have a defined generation or injection process, and this process ensures sufficient entropy for the key. · All key-generation functions must implement one-way This requirement applies to keys used to encrypt sensitive data and any respective key-encrypting keys."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "7.2.c Where cryptography is used to protect a key, the assessor shall examine evidence and test the software to confirm that security is not provided to any key by a key of lesser strength (for example, by encrypting a 256-bit AES key with a 128-bit AES key)."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "7.3 All random numbers used by the software are generated using only industry-standard random number generation (RNG) algorithms or libraries.",
+            "test_requirements": [
+                "7.2.h The assessor shall examine evidence to confirm that secret and/or private keys are managed in a way that ensures split knowledge over the key to a level that is feasible given the platform on which the software is executed. Where absolute split knowledge is not feasible, the assessor shall confirm that the methods implemented are reasonable to protect secrets and/or private keys.",
+                "7.3.a The assessor shall examine evidence and test the software to identify all random number generators used by the software and to confirm that all random number generation methods:"
+            ],
+            "guidance": "Random numbers are often used with cryptography to protect sensitive information. Encryption keys and initialization values (seeds) are examples of implementations in which random numbers are It is not a trivial endeavor to design and implement a secure random number generator. Software vendors are required to use only approved random number generation algorithms and libraries or provide their own implementation that meets the same criteria as industry-standard RNGs. The complete guidance text goes here without any truncation..."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "7.3.d Where the software vendor does not rely on a previous assessment of the random number generator or source of initial entropy, the assessor shall test the software to obtain 128MB of data output from each random number generator implemented in the system to confirm the lack of statistical correlation in the output. This data may be generated by the assessor directly, or supplied by the vendor, but the assessor must confirm that the generation method implemented ensures that the data is produced as it would be produced by the software during normal operation. Note: The assessor can use the NIST Statistical Test Suite to identify statistical correlation in the random number generation implementation."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "7.4 Random values have entropy that meets the minimum effective strength requirements of the cryptographic primitives and keys that rely on them.",
+            "test_requirements": [
+                "7.4.a The assessor shall examine evidence and test the software to confirm that the methods used for the generation of all cryptographic keys and other material (such as IVs, \"k\" values for digital signatures, and so on) have entropy that meets the minimum effective strength requirements of the cryptographic primitives and keys."
+            ],
+            "guidance": "Entropy is the degree of randomness of a random value generator. The higher the entropy, the less predictable the next value in a random number generator is likely to be.\n(continued on next page)"
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "7.4.b Where cryptographic keys are generated through processes which require direct user interaction, such as through the entry of a passphrase or the use of \"random\" user interaction with the software, the assessor shall examine evidence and test the software to confirm that these processes are implemented in such a way that they provide sufficient entropy. Specifically, the assessor shall confirm that: · Methods used for generating keys directly from a password/passphrase enforce an input domain that is able to provide sufficient entropy, such that the total possible",
+                "· Passphrases are passed through an industry-standard key-",
+                "passphrase used must:  -"
+            ],
+            "guidance": "Note that a non-deterministic random number generator (NDRG) may produce an output string that contains less entropy than implied by the length of the output. A deterministic random number generator (DRNG) is dependent on the entropy of its seed value. Passphrases are passed through an industry-standard key-guidance is provided to stakeholders in accordance with Control Objective 12.1 that includes instructions that any Be randomly generated itself using a valid and secure random process, and that an online random number generator must not be used for this purpose."
+        },
+        {
+            "control_objective": "Control Objective 8: Activity Tracking All software activities involving critical assets are tracked.",
+            "test_requirements": [
+                "All access attempts and usage of critical assets are tracked and traceable to a unique user. Note: This Secure Software Standard recognizes that some execution environments cannot",
+                "The assessor shall examine evidence and test the software to confirm that all access attempts and usage of critical assets are tracked and traceable to a unique individual, system, or Examples of activities that the software should record"
+            ],
+            "guidance": "To ensure user accountability and to support post- incident forensic investigation, payment software should capture and maintain historical records of all software activities involving critical assets and ensure that all such activities are traceable to a unique user (for example, a person, system, or other entity)."
+        },
+        {
+            "control_objective": "8.2 All activity is captured in sufficient and necessary detail to accurately describe the specific activities that were performed, who performed them, the time they were performed, and the critical assets that were affected.",
+            "test_requirements": [
+                "8.2.a The assessor shall examine evidence and test the software to confirm that the tracking method(s) implemented capture specific activity performed, including: · Enablement of any privileged modes of operation. · Disabling of encryption of sensitive data. · Decryption of sensitive data. · Exporting of sensitive data to other systems or processes. · Failed authentication attempts. · Disabling or deleting a security control or altering security functions.",
+                "8.2.b A unique identification for the individual, system, or entity accessing or using critical assets. · A timestamp for each tracked event. · Details on what critical asset has been accessed."
+            ],
+            "guidance": "By recording the details in this requirement for all attempts to access or use critical assets, malicious activity or potential software or data compromise can be quickly identified and with sufficient detail to know who performed the activity, whether the attempt was successful, when the activity occurred, what critical assets were affected, and the origination of the event."
+        },
+        {
+            "control_objective": "8.3 The software supports secure retention of detailed activity records.",
+            "test_requirements": [
+                "8.2.c The assessor shall test the software to confirm that confidential data is not directly recorded in the tracking data.",
+                "8.3.a Where the activity records are managed by the software, including only temporarily before being passed to other systems, the assessor shall examine evidence and test the software to confirm that the protection methods are implemented to protect completeness, accuracy, and integrity of the activity records."
+            ],
+            "guidance": "By recording the details in this requirement for all attempts to access or use critical assets, malicious activity or potential software or data compromise can be quickly identified and with sufficient detail to know who performed the activity, whether the attempt was successful, when the activity occurred, what critical assets were affected, and the origination of the event."
+        },
+        {
+            "control_objective": "8.4 The software handles failures in",
+            "test_requirements": [
+                "8.3.b Where the software utilizes external or third-party systems for the maintenance of tracking data, such as a log server, the assessor shall examine evidence to confirm that guidance on the correct and complete setup and/or integration of the software with the external or third-party system(s) is provided to stakeholders in accordance with Control Objective 12.1.",
+                "8.3.c The assessor shall test the software to confirm methods are implemented to secure the authenticity of the tracking data during transmission to the log storage system, and to confirm that this protection meets the requirements of this standard (for example, authenticity parameters must be applied using strong cryptography) and any account or authentication parameters used for access to an external logging system are protected."
+            ],
+            "guidance": "Without adequate protection of activity records, their completeness, accuracy, and integrity cannot be guaranteed and any reliance that would otherwise be placed on them (such as during a forensic investigation) would be negated. When activity records are managed by the software, the records must be protected in accordance with all applicable requirements for the protection of sensitive data."
+        },
+        {
+            "control_objective": "activity-tracking mechanisms such that the integrity of existing activity records is preserved.",
+            "test_requirements": [
+                "8.4.a The assessor shall examine evidence and test the software to confirm that the failure of the activity-tracking mechanism(s) does not violate the integrity of existing records by confirming that: · The software does not overwrite existing tracking data upon a restart of the software. Each new start shall only append to existing datasets or shall create a new tracking Software security controls should be implemented to ensure that when activity-tracking mechanism(s) fail, those failures are handled in a way that maintains the integrity of the records. Otherwise, attackers may intentionally target activity-tracking mechanisms and cause failures that would allow the attackers to conceal or overwrite evidence of their activities."
+            ],
+            "guidance": "Without adequate protection of activity records, their completeness, accuracy, and integrity cannot be guaranteed and any reliance that would otherwise be placed on them (such as during a forensic investigation) would be negated. When activity records are managed by the software, the records must be protected in accordance with all applicable requirements for the protection of sensitive data."
+        },
+        {
+            "control_objective": "8.4 The software applies, where possible, suitable file privileges to assist with maintaining the integrity of the tracking dataset (such as applying an append-only access control to a dataset once created). Where the software does not apply such controls, the assessor shall confirm reasonable justification exists describing why this is the case, why the behavior is sufficient, and what additional mitigations are applied to maintain the integrity of the tracking data.",
+            "test_requirements": [
+                "8.4.a The software applies, where possible, suitable file privileges to assist with maintaining the integrity of the tracking dataset (such as applying an append-only access control to a dataset once created). Where the software does not apply such controls, the assessor shall confirm reasonable justification exists describing why this is the case, why the behavior is sufficient, and what additional mitigations are applied to maintain the integrity of the tracking data."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "8.4.b The assessor shall examine evidence and test the software to confirm that the integrity of activity tracking records is maintained by:"
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "· Performing actions that should be tracked, force-closing and then restarting the software, and performing other tracked actions."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "· Performing actions that should be tracked, power-cycling the platform on which the software is executing, and then restarting the software and performing other tracked actions."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "· Locking access to the tracking dataset and confirming that the software handles the inability to access this dataset in a secure way, such as by creating a new dataset or preventing further use of the software."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "Control Objective 9: Attacks are detected, and the impacts/effects of attacks are minimized.",
+            "test_requirements": [
+                "9.1.a The assessor shall examine evidence and test the software to confirm that methods are implemented to validate the integrity of software executables and any configuration options, files, and datasets that the software relies upon for operation such that unauthorized post-deployment changes are detected. Where the execution environment prevents this, the assessor shall examine evidence (including publicly available literature on the platform and associated technologies) to confirm that",
+                "9.1.c Where cryptographic primitives are used by any anomaly-detection methods, the assessor shall examine evidence and test the software to confirm that the cryptographic primitives are protected.",
+                "9.1.d Where stored values are used by any anomaly detection methods, the assessor shall examine evidence and test the software to confirm that these values are considered sensitive data and are protected accordingly."
+            ],
+            "guidance": "Software should possess basic functionality to differentiate between normal and anomalous user behavior. Examples of anomalous behavior that should be automatically detected by the software include changes in post-deployment (or post-initialization) configurations or obvious automated-attack behaviors, such as repeated authentication attempts at a frequency that is infeasible for a human user. In some cases, it may be impractical to implement these capabilities directly into payment software, and"
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "9.1.f The assessor shall examine evidence and test the software to confirm that the software implements controls to prevent brute-force attacks on account, password, or cryptographic-key input fields (for example, input rate limiting)."
+            ],
+            "guidance": "Guidance"
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "9.1.g Where third-party tools or services are relied upon by the software to provide attack detection capabilities, the assessor shall examine evidence to confirm that guidance on how to configure such tools and services to support this control objective is provided to stakeholders in accordance with Control Objective 12.1."
+            ],
+            "guidance": "Guidance"
+        },
+        {
+            "control_objective": "Control Objective 10: Threat and Vulnerability Management Payment software threats and vulnerabilities are identified, assessed, and managed appropriately.",
+            "test_requirements": [
+                "10.1.a Using information obtained in Test Requirement 4.1.a, the assessor shall examine evidence to confirm that common attack methods against the software are identified. This may include platform-level, protocol-level, and/or language-level attacks. 10.1.b The assessor shall examine evidence to confirm that the identified attacks are valid for the software and shall note where",
+                "10.2.a The assessor shall examine software design documents, source code, and other relevant artifacts to identify potential security weaknesses or vulnerabilities in the software. 10.2.b The assessor shall examine the results of static analysis tools, dynamic analysis tools, and other automated vulnerability detection methods to confirm that identified vulnerabilities have been addressed.",
+                "10.3.a The assessor shall review the incident response plan for the software to ensure it addresses potential security incidents related to identified threats and vulnerabilities. 10.3.b The assessor shall examine evidence of regular testing and validation of the incident response plan to ensure its effectiveness in managing threats and vulnerabilities.",
+                "10.4.a The assessor shall examine logs, audit trails, and other relevant records to verify that security incidents related to identified threats and vulnerabilities are promptly detected and appropriately managed. 10.4.b The assessor shall review documented procedures for reporting and responding to security incidents related to the software."
+            ],
+            "guidance": "Determining how to effectively secure and defend the software against attacks requires a thorough understanding of the specific threats and potential vulnerabilities applicable to the vendor's software. This typically involves understanding the following: · The types of information collected, stored, processed, or transmitted by the software. · The security controls and measures in place to protect this information from unauthorized access or misuse. · Common attack vectors that could be used against similar software systems. · Best practices for identifying and managing threats throughout the software lifecycle."
+        },
+        {
+            "control_objective": "10.2 Vulnerabilities in the software and third-party components are tested for and fixed prior to release.",
+            "test_requirements": [
+                "10.2.a The assessor shall examine evidence to confirm that robust testing processes are used throughout the software lifecycle to manage vulnerabilities in software and to verify that the mitigations used to secure the software against attacks remain in place and are effective."
+            ],
+            "guidance": "Most software vulnerabilities are introduced as a result of coding errors, bad design, improper implementation, or the use of vulnerable components. Software should be developed and tested in a manner that minimizes the existence of any vulnerabilities and detects those that emerge over time, such that the vulnerabilities may be addressed Techniques to avoid the introduction of vulnerabilities during development include the use of security coding practices, testing code during each phase of the development lifecycle using automated tools (such as static/dynamic analysis tools and interactive security testing tools), and the use of known secure components (for example, common code that has already undergone significant security vetting). To minimize the introduction of software vulnerabilities from third-party components, those components must also be evaluated. Ideally, they should be subject to the same secure development and testing processes as the software created by the vendor. Security testing should be performed by"
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "10.2.b The assessor shall examine evidence including documented testing processes and output of several instances of the testing to confirm that the testing process:"
+            ],
+            "guidance": "· Includes, at a minimum, the use of automated tools capable of detecting vulnerabilities both in software code and during software execution. for the software architecture, development languages, and frameworks used in the development of the software."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "· Accounts for the entire code base and detects vulnerabilities in third-party, open-source, or shared components and libraries."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "· Accounts for common vulnerabilities and attack methods. · Demonstrates a history of finding software vulnerabilities and remediating them prior to software release."
+            ],
+            "guidance": "10.2.c Where evidence examined in Test Requirement 10.2.b"
+        },
+        {
+            "control_objective": "Control Objective 11: Secure Software Updates - Software releases and updates to address vulnerabilities are provided in a secure and timely manner.",
+            "test_requirements": [
+                "11.1.a The assessor shall examine evidence to confirm that: · Reasonable criteria are defined for releasing software updates to fix security vulnerabilities. · Security updates are made available to stakeholders in accordance with the defined criteria. 11.1.b The assessor shall examine evidence, including update-specific security-testing results and details, to confirm that",
+                "11.2.a The assessor shall examine evidence to confirm that the method(s) by which the vendor releases software updates maintain the integrity of the software code during transmission and installation. 11.2.b integrity of the software code, the assessor shall examine stakeholders in accordance with Control Objective 12.1."
+            ],
+            "guidance": "Vulnerabilities in software should be fixed as soon as possible to enable software users and other stakeholders to address any risks before vulnerabilities in their payment systems and software can be exploited by attackers. Vulnerabilities should be addressed in a manner that is commensurate with the risk they pose to software users or other stakeholders. The most critical or"
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "11.2.d The assessor shall examine vendor evidence to confirm that stakeholders are notified of software updates, and that guidance on how they may be obtained and installed is provided to stakeholders in accordance with Control Objective 12.1."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "11.2.e The assessor shall examine evidence to confirm that stakeholders are notified when known vulnerabilities are detected in software that has not yet been updated with a fix. This includes vulnerabilities that may exist in third-party software and libraries used by the software. The assessor shall confirm that this process includes providing the stakeholders with suggested mitigations for any such vulnerabilities."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "11.2.f The assessor shall examine evidence to confirm that the software update mechanisms cover all software, configuration files, and other metadata that may be used by the software for security purposes or which may in some way affect the security of the software."
+            ],
+            "guidance": ""
+        },
+        {
+            "control_objective": "Control Objective 12: Software Vendor Implementation Guidance",
+            "test_requirements": [
+                "The software vendor provides stakeholders with clear and thorough guidance on the secure implementation, configuration, and operation of its payment software.",
+                "12.1.a The assessor shall examine evidence to confirm that the vendor creates and provides stakeholders, clear and sufficient guidance to allow for the secure installation, configuration, and use of the software.",
+                "12.1.b The assessor shall examine evidence to confirm that the guidance: · Includes details on how to securely and correctly install any third-party software that is required for the operation of the vendor software. · Provides instructions on the correct configuration of the platform(s) on which the software is to be executed, including setting security parameters and installation of any"
+            ],
+            "guidance": "When followed, the software vendor's implementation guidance provides assurance that the software and patches can be securely installed, configured, and maintained in a customer environment, and that all desired security functions are active and working as intended. The guidance should cover all options and functions available to software users that could affect the security of the software or the data it interacts with. The guidance should also include secure configuration options for any components provided with or supported by the software, such as external software and underlying platforms."
+        },
+        {
+            "control_objective": "",
+            "test_requirements": [
+                "12.1.b · Provides justification for any requirements in this standard that are to be assessed as not applicable. For each of these, the assessor shall confirm justification exists for why this is the case and shall confirm that it agrees with their understanding and the results of their software testing."
+            ],
+            "guidance": "Guidance"
+        },
+        {
+            "control_objective": "3.2 System management and maintenance",
+            "test_requirements": [
+                "3.2.a The assessor shall examine the system documentation, including installation and configuration procedures, to verify that secure system management practices are defined.",
+                "3.2.b The assessor shall review the system’s security policies and procedures, as documented in the security manual, to ensure they align with industry best practices and regulatory requirements.",
+                "3.2.c The assessor shall verify through system logs and audit trails that all configuration changes made during maintenance activities are recorded and can be traced back to authorized personnel.",
+                "3.2.d The assessor shall review the incident response plan for system management incidents, including data breaches or unauthorized access, to ensure it includes steps for immediate containment, investigation, and reporting."
+            ],
+            "guidance": "System management and maintenance activities should include secure practices to protect sensitive information and maintain system integrity. Documentation, policies, and procedures are critical in ensuring that all operations adhere to security standards. Logs and audit trails provide essential evidence of compliance with these practices. An effective incident response plan is crucial for managing potential security breaches."
+        },
+        {
+            "control_objective": "3.4 The software securely deletes sensitive data when required",
+            "test_requirements": [
+                "3.4.a The assessor shall examine software design and implementation evidence and verify that the software includes functionality to securely delete sensitive data when required.",
+                "3.4.b The assessor shall examine software test results and verify that sensitive data is securely deleted when required."
+            ],
+            "guidance": "The software must provide mechanisms for securely deleting sensitive data in accordance with organizational policies, ensuring that such data cannot be recovered once it has been deleted."
+        }
+    ]
+}
